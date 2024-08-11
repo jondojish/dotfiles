@@ -20,6 +20,8 @@
 
 ### Aerospace
 - install [aerospace](https://github.com/nikitabobko/AeroSpace)
+- Enable: System Settings > Desktop & Dock > Group windows by application
+    - makes mission control work properly
 
 ### Font
 - install [Jetbrains Mono Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases)
