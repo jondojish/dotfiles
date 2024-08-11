@@ -2,8 +2,8 @@
 - clone repo into ~/dotfiles
 - cd into `~/dotfiles`
 - run `stow <path/to/folder-or-file>` to symlink the desired folder or file
-- or run `stow .` to symlink all folders and files
-- run `stow -D .` to remove all symlinks
+    - or run `stow .` to symlink all folders and files
+    - Note: `stow -D .` will remove all symlinks
 
 ## Prerequisites
 
