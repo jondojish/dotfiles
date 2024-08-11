@@ -10,7 +10,7 @@ return {
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
 		require("nvim-tree").setup({
-			on_attach = function()
+			on_attach = function(bufnr)
 				local api = require("nvim-tree.api")
 				-- default mappings
 				api.config.mappings.default_on_attach(bufnr)
