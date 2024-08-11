@@ -8,21 +8,21 @@
 ## Prerequisites
 
 ### Dotfiles
-- install [stow](https://formulae.brew.sh/formula/stow)
+- install stow `brew install stow`
 
 ### Nvim
-- install [neovim](https://formulae.brew.sh/formula/neovim)
-- install [ripgrep](https://github.com/BurntSushi/ripgrep)
+- install neovim `brew install neovim`
+- install ripgrep `brew install ripgrep`
 
 ### Kitty
-- install [kitty](https://formulae.brew.sh/cask/kitty)
+- install kitty `brew install --cask kitty`
 
 ### Zsh 
-- install [oh-my-zsh](https://ohmyz.sh/)
-- install [fzf](https://formulae.brew.sh/formula/fzf)
+- install oh-my-zsh `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+- install fzf `brew install fzf`
 
 ### Aerospace
-- install [aerospace](https://github.com/nikitabobko/AeroSpace)
+- install aerospace `brew install --cask aerospace`
 - Enable: System Settings > Desktop & Dock > Group windows by application
     - makes mission control work properly
 
