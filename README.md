@@ -27,4 +27,4 @@
     - makes mission control work properly
 
 ### Font
-- install [Jetbrains Mono Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases)
+- install Jetbrains Mono Nerd Font `brew install --cask font-jetbrains-mono-nerd-font`
