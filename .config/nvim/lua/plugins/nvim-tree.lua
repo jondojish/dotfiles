@@ -11,6 +11,9 @@ return {
 		vim.g.loaded_netrwPlugin = 1
 		require("nvim-tree").setup({
 			on_attach = function()
+				local api = require("nvim-tree.api")
+				-- default mappings
+				api.config.mappings.default_on_attach(bufnr)
 				-- unmap filter
 				vim.keymap.set("n", "f", "", {})
 			end,
