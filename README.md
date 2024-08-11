@@ -18,8 +18,9 @@
 - install kitty `brew install --cask kitty`
 
 ### Zsh 
-- install oh-my-zsh ```sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"```
+- install oh-my-zsh `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 - install fzf `brew install fzf`
+- install oh-my-posh `brew install jandedobbeleer/oh-my-posh/oh-my-posh`
 
 ### Aerospace
 - install aerospace `brew install --cask aerospace`

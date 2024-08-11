@@ -1,12 +1,10 @@
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
-
-# Theme
-ZSH_THEME="gozilla"
-DISABLE_LS_COLORS="true"
-
 source $ZSH/oh-my-zsh.sh
+
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+    eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/ohmyposh.json)"
+fi
 
 # User configuration
 
