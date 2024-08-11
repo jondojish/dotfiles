@@ -22,7 +22,18 @@ return {
 				},
 			},
 			sections = {
-				lualine_a = { "mode" },
+				lualine_a = {
+					"mode",
+					{
+						function()
+							local reg = vim.fn.reg_recording()
+							if reg == "" then
+								return ""
+							end -- not recording
+							return "recording to " .. reg
+						end,
+					},
+				},
 				lualine_b = { "branch", "diff", "diagnostics" },
 				lualine_c = { { "filename", path = 1 } },
 				lualine_x = { "encoding", "fileformat", "filetype" },
