@@ -16,7 +16,10 @@
 
 ### Kitty
 - install [kitty](https://formulae.brew.sh/cask/kitty)
+
+### Zsh 
 - install [oh-my-zsh](https://ohmyz.sh/)
+- install [fzf](https://formulae.brew.sh/formula/fzf)
 
 ### Aerospace
 - install [aerospace](https://github.com/nikitabobko/AeroSpace)
