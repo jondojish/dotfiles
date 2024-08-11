@@ -15,7 +15,7 @@ return {
 				-- default mappings
 				api.config.mappings.default_on_attach(bufnr)
 				-- unmap filter
-				vim.keymap.set("n", "f", "", {})
+				vim.keymap.set("n", "f", "<Nop>", { buffer = bufnr, noremap = true, silent = true })
 			end,
 			sort = {
 				sorter = "case_sensitive",
