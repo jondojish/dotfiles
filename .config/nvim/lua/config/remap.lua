@@ -33,3 +33,7 @@ vim.keymap.set("n", "<leader>zig", "<cmd>LspRestart<cr>")
 
 -- change all occorunces of current word in file
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- command completion with arrow keys and enter to select
+vim.api.nvim_set_keymap("c", "<Up>", "<C-p>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("c", "<Down>", "<C-n>", { noremap = true, silent = true })
