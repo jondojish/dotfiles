@@ -22,5 +22,12 @@ return {
 			timeout = 5000,
 			top_down = true,
 		})
+		-- dismiss notifications
+		vim.keymap.set(
+			"n",
+			"<leader>n",
+			':lua require("notify").dismiss({ silent = true, pending = true })<CR>',
+			{ noremap = true, silent = true }
+		)
 	end,
 }
