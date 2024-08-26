@@ -176,7 +176,7 @@ return {
 			local servers = {
 				-- LSPs
 				clangd = {},
-				-- gopls = {},
+				gopls = {},
 				pyright = {},
 				rust_analyzer = {},
 				html = {},
@@ -242,6 +242,7 @@ return {
 				-- "clang_format",
 				"shfmt",
 				"google-java-format",
+				"gofumpt",
 			}
 
 			local linters = {

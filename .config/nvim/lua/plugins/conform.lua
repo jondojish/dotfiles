@@ -22,6 +22,7 @@ return {
 				java = { "google-java-format" },
 				c = { "clang-format" },
 				cpp = { "clang-format" },
+				go = { "gofmt" },
 			},
 		})
 		-- format on save
