@@ -15,6 +15,9 @@ else
   export EDITOR='mvim'
 fi
 
+# kitty ssh fix
+[[ "$TERM" == "xterm-kitty" ]] && alias ssh="TERM=xterm-256color ssh"
+
 # search for any subdir in ~/Developer with a depth of one and cd into it
 function dev() {
     local dir=$(find ~/Developer -mindepth 1 -maxdepth 1 -type d | fzf)
