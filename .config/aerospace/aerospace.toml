@@ -82,7 +82,8 @@ outer.right =      0
 
 # You can uncomment this line to open up terminal with alt + enter shortcut
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-alt-semicolon = 'exec-and-forget open -n /Applications/kitty.app/'
+alt-semicolon = "exec-and-forget osascript -e \'if application \"Terminal\" is running then\' -e \'tell application \"terminal\"\' -e \'do script \"\"\' -e \'activate\' -e \'end tell\' -e \'else\' -e \'tell application \"Terminal\"\' -e \'activate\' -e \'end tell\' -e \'end if\'"
+# alt-semicolon = 'exec-and-forget open -n /Applications/kitty.app/'
 alt-enter = 'exec-and-forget open -n /Applications/Google\ Chrome.app/'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
