@@ -35,7 +35,10 @@ return {
 	config = function()
 		local builtin = require("telescope.builtin")
 		vim.keymap.set("n", "<leader>pf", function()
-			builtin.find_files({ find_command = { "rg", "--files", "--iglob", "!.git", "--hidden" } })
+			builtin.find_files({
+				-- find_command = { "rg", "--files", "--iglob", "!.git", "--iglob", "!**/venv/*", "--hidden" },
+				find_command = { "rg", "--files", "--iglob", "!.git", "--iglob", "!**/venv/*" },
+			})
 		end, {})
 		vim.keymap.set("n", "<leader>pc", function()
 			local config_dir = vim.env.HOME .. "/.config/nvim"
