@@ -26,3 +26,15 @@ function dev() {
     fi
 }
 
+
+alias grass='/Applications/GRASS-8.4.app/Contents/Resources/bin/grass'
+
+# Add pyenv to PATH
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export CFLAGS="-I/opt/homebrew/opt/openssl/include"
+export LDFLAGS="-L/opt/homebrew/opt/openssl/lib"
+
+# Initialize pyenv
+eval "$(pyenv init --path)"
+
