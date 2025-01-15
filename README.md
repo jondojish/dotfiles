@@ -22,6 +22,9 @@
 - install fzf `brew install fzf`
 - install oh-my-posh `brew install jandedobbeleer/oh-my-posh/oh-my-posh`
 
+### fzf + eza + bat
+- `brew install fzf eza bat`
+
 ### Aerospace
 - install aerospace `brew install --cask aerospace`
 - Enable: System Settings > Desktop & Dock > Group windows by application
