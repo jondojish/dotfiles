@@ -39,17 +39,18 @@ return {
 				-- find_command = { "rg", "--files", "--iglob", "!.git", "--iglob", "!**/venv/*", "--hidden" },
 				find_command = { "rg", "--files", "--iglob", "!.git", "--iglob", "!**/venv/*" },
 			})
-		end, {})
+		end, { desc = "Search files" })
 		vim.keymap.set("n", "<leader>pc", function()
 			local config_dir = vim.env.HOME .. "/.config/nvim"
 			builtin.find_files({
 				find_command = { "rg", "--files", "--iglob", "!.git", "--hidden", config_dir },
 				previewer = false,
 			})
-		end, {})
-		vim.keymap.set("n", "<leader>pg", builtin.git_files, {})
-		vim.keymap.set("n", "<leader>ps", builtin.live_grep, {})
-		vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, {})
+		end, { desc = "Config files" })
+		vim.keymap.set("n", "<leader>pg", builtin.git_files, { desc = "Search Git files" })
+		vim.keymap.set("n", "<leader>ps", builtin.live_grep, { desc = "Grep in project" })
+		vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Grep in buffer" })
+		vim.keymap.set("n", "<leader>pk", "<cmd>Telescope keymaps<cr>", { desc = "Search keybinds" })
 		require("telescope").setup({ defaults = defaults })
 	end,
 }

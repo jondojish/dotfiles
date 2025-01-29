@@ -4,20 +4,21 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 -- Remap J and K in visual mode to move selection up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>v", ":vsplit<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>v", ":vsplit<CR>", { desc = "Split Window Vert", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>h", ":split<CR>", { desc = "Split Window Horiz", noremap = true, silent = true })
 -- Key mappings to switch between splits using leader key
-vim.keymap.set("n", "<leader>h", "<C-w>h", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>j", "<C-w>j", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>k", "<C-w>k", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>l", "<C-w>l", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>h", "<C-w>h", { desc = "Switch to left split", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>j", "<C-w>j", { desc = "Switch to down split", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>k", "<C-w>k", { desc = "Switch to up split", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>l", "<C-w>l", { desc = "Switch to right split", noremap = true, silent = true })
 
 -- don't yank when pasting in a selction, or when deleting
-vim.keymap.set("x", "<leader>p", [["_dP]])
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste without yanking" })
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without yanking" })
 
 -- yank to clipboard
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to clipboard" })
+vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Yank line to clipboard" })
 
 -- don't move cursor to end of line when concatenating lines
 vim.keymap.set("n", "J", "mzJ`z")
@@ -29,11 +30,19 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- reload lsp
-vim.keymap.set("n", "<leader>zig", "<cmd>LspRestart<cr>")
+vim.keymap.set("n", "<leader>zig", "<cmd>LspRestart<cr>", { desc = "Restart LSP" })
 
 -- change all occorunces of current word in file
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set(
+	"n",
+	"<leader>ra",
+	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+	{ desc = "Replace all occurences of word in file" }
+)
 
 -- command completion with arrow keys and enter to select
 vim.api.nvim_set_keymap("c", "<Up>", "<C-p>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("c", "<Down>", "<C-n>", { noremap = true, silent = true })
+
+-- disable command window
+vim.api.nvim_set_keymap("n", "q:", "<Nop>", { noremap = true, silent = true })

@@ -27,7 +27,7 @@ return {
 			"n",
 			"<leader>n",
 			':lua require("notify").dismiss({ silent = true, pending = true })<CR>',
-			{ noremap = true, silent = true }
+			{ desc = "(notify) Dissmis notifications", noremap = true, silent = true }
 		)
 	end,
 }
