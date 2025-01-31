@@ -28,6 +28,10 @@ return {
 					quit_on_open = true,
 				},
 			},
+			update_focused_file = {
+				enable = true,
+				update_cwd = true,
+			},
 			renderer = {
 				group_empty = true,
 			},
