@@ -31,7 +31,11 @@ return {
 	"nvim-telescope/telescope.nvim",
 	tag = "0.1.8",
 	-- lazy = false,
-	dependencies = { "nvim-lua/plenary.nvim", "folke/trouble.nvim" },
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"folke/trouble.nvim",
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	},
 	config = function()
 		local builtin = require("telescope.builtin")
 		vim.keymap.set("n", "<leader>pf", function()
@@ -48,9 +52,23 @@ return {
 			})
 		end, { desc = "Config files" })
 		vim.keymap.set("n", "<leader>pg", builtin.git_files, { desc = "Search Git files" })
-		vim.keymap.set("n", "<leader>ps", builtin.live_grep, { desc = "Grep in project" })
+		vim.keymap.set("n", "<leader>ps", function()
+			builtin.grep_string({ shorten_path = true, word_match = "-w", only_sort_text = true, search = "" })
+		end, { desc = "Grep in project" })
 		vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Grep in buffer" })
 		vim.keymap.set("n", "<leader>pk", "<cmd>Telescope keymaps<cr>", { desc = "Search keybinds" })
-		require("telescope").setup({ defaults = defaults })
+		require("telescope").setup({
+			defaults = defaults,
+			extensions = {
+				fzf = {
+					fuzzy = true, -- false will only do exact matching
+					override_generic_sorter = true, -- override the generic sorter
+					override_file_sorter = true, -- override the file sorter
+					case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+					-- the default case_mode is "smart_case"
+				},
+			},
+		})
+		require("telescope").load_extension("fzf")
 	end,
 }
