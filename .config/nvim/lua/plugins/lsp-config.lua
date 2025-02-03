@@ -200,7 +200,7 @@ return {
 				-- But for many setups, the LSP (`tsserver`) will work just fine
 				-- tsserver = {},
 				--
-				tsserver = {
+				ts_ls = {
 					on_attach = function(client, bufnr)
 						-- Configure tsserver to use null-ls for formatting if you are using it
 						client.server_capabilities.document_formatting = false
