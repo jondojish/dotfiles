@@ -1,32 +1,3 @@
-local defaults = {
-	prompt_prefix = "   ",
-	selection_caret = ">",
-	entry_prefix = " ",
-	sorting_strategy = "ascending",
-	layout_config = {
-		horizontal = {
-			prompt_position = "top",
-			preview_width = 0.55,
-		},
-		width = 0.87,
-		height = 0.80,
-	},
-	mappings = {
-		n = {
-			["q"] = require("telescope.actions").close,
-			["<C-q>"] = function(prompt_bufnr)
-				local open_with_trouble = require("trouble.sources.telescope").open
-				open_with_trouble(prompt_bufnr)
-			end,
-		},
-		i = {
-			["<C-q>"] = function(prompt_bufnr)
-				local open_with_trouble = require("trouble.sources.telescope").open
-				open_with_trouble(prompt_bufnr)
-			end,
-		},
-	},
-}
 return {
 	"nvim-telescope/telescope.nvim",
 	tag = "0.1.8",
@@ -37,6 +8,8 @@ return {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	},
 	config = function()
+		local actions = require("telescope.actions")
+
 		local builtin = require("telescope.builtin")
 		vim.keymap.set("n", "<leader>pf", function()
 			builtin.find_files({
@@ -52,13 +25,50 @@ return {
 			})
 		end, { desc = "Config files" })
 		vim.keymap.set("n", "<leader>pg", builtin.git_files, { desc = "Search Git files" })
+		-- vim.keymap.set("n", "<leader>ps", builtin.live_grep, { desc = "Grep in project" })
 		vim.keymap.set("n", "<leader>ps", function()
 			builtin.grep_string({ shorten_path = true, word_match = "-w", only_sort_text = true, search = "" })
 		end, { desc = "Grep in project" })
 		vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Grep in buffer" })
 		vim.keymap.set("n", "<leader>pk", "<cmd>Telescope keymaps<cr>", { desc = "Search keybinds" })
 		require("telescope").setup({
-			defaults = defaults,
+			defaults = {
+				prompt_prefix = "   ",
+				selection_caret = ">",
+				entry_prefix = " ",
+				sorting_strategy = "ascending",
+				layout_config = {
+					horizontal = {
+						prompt_position = "top",
+						preview_width = 0.55,
+					},
+					width = 0.87,
+					height = 0.80,
+				},
+				mappings = {
+					n = {
+						["q"] = require("telescope.actions").close,
+						["<C-q>"] = function(prompt_bufnr)
+							local open_with_trouble = require("trouble.sources.telescope").open
+							open_with_trouble(prompt_bufnr)
+						end,
+						["<C-j>"] = actions.move_selection_next, -- Move down
+						["<C-k>"] = actions.move_selection_previous, -- Move up
+						-- ["<C-d>"] = actions.results_scrolling_down, -- Scroll down
+						-- ["<C-u>"] = actions.results_scrolling_up, -- Scroll up
+					},
+					i = {
+						["<C-q>"] = function(prompt_bufnr)
+							local open_with_trouble = require("trouble.sources.telescope").open
+							open_with_trouble(prompt_bufnr)
+						end,
+						["<C-j>"] = actions.move_selection_next, -- Move down
+						["<C-k>"] = actions.move_selection_previous, -- Move up
+						-- ["<C-d>"] = actions.results_scrolling_down, -- Scroll down
+						-- ["<C-u>"] = actions.results_scrolling_up, -- Scroll up
+					},
+				},
+			},
 			extensions = {
 				fzf = {
 					fuzzy = true, -- false will only do exact matching
