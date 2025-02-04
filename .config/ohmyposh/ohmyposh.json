@@ -16,9 +16,10 @@
           "style": "plain",
           "foreground": "p:os",
           "properties": {
-            "display_mode": "context"
+            "display_mode": "context",
+            "folder_name_fallback": false
           },
-          "template": "({{ .Venv }} - {{ .Full }}) "
+          "template": "{{ if .Venv }}({{ .Venv }} - {{ .Full }}) {{ end }}"
         },
         {
           "foreground": "p:pink",
