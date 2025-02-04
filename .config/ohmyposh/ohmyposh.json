@@ -18,7 +18,7 @@
           "properties": {
             "display_mode": "context"
           },
-          "template": " ({{ .Venv }} - {{ .Full }}) "
+          "template": "({{ .Venv }} - {{ .Full }}) "
         },
         {
           "foreground": "p:pink",
