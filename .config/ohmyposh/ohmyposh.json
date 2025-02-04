@@ -12,6 +12,15 @@
       "alignment": "left",
       "segments": [
         {
+          "type": "python",
+          "style": "plain",
+          "foreground": "p:os",
+          "properties": {
+            "display_mode": "context"
+          },
+          "template": " ({{ .Venv }} - {{ .Full }}) "
+        },
+        {
           "foreground": "p:pink",
           "properties": {
             "folder_icon": "..\ue5fe..",
