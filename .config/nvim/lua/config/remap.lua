@@ -5,12 +5,18 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>v", ":vsplit<CR>", { desc = "Split Window Vert", noremap = true, silent = true })
-vim.keymap.set("n", "<leader>h", ":split<CR>", { desc = "Split Window Horiz", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>s", ":split<CR>", { desc = "Split Window Horiz", noremap = true, silent = true })
 -- Key mappings to switch between splits using leader key
 vim.keymap.set("n", "<leader>h", "<C-w>h", { desc = "Switch to left split", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>j", "<C-w>j", { desc = "Switch to down split", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>k", "<C-w>k", { desc = "Switch to up split", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>l", "<C-w>l", { desc = "Switch to right split", noremap = true, silent = true })
+
+-- Resize splits with leader + SHIFT + H/J/K/L
+vim.keymap.set("n", "<leader>H", ":vertical resize -2<CR>", { silent = true })
+vim.keymap.set("n", "<leader>L", ":vertical resize +2<CR>", { silent = true })
+vim.keymap.set("n", "<leader>K", ":resize +2<CR>", { silent = true })
+vim.keymap.set("n", "<leader>J", ":resize -2<CR>", { silent = true })
 
 -- don't yank when pasting in a selction, or when deleting
 vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste without yanking" })
