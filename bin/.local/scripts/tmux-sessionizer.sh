@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/Developer  ~/University ~ -mindepth 1 -maxdepth 2 -type d | awk '!seen[$0]++'| fzf --height=100% )
+    selected=$(find ~/Developer  ~/University ~ -mindepth 1 -maxdepth 1 -type d | awk '!seen[$0]++'| fzf --height=100% )
 fi
 
 if [[ -z $selected ]]; then
