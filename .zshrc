@@ -57,7 +57,7 @@ function dev() {
 
 # Next level of an ls 
 # options :  --no-filesize --no-time --no-permissions 
-alias ls="eza --no-filesize --no-time --color=always --icons=always --no-user --no-permissions"
+alias l="eza --no-filesize --no-time --color=always --icons=always --no-user --no-permissions"
 
 # Script to list recent files and open nvim using fzf
 # set to an alias nlof in .zshrc

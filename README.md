@@ -32,3 +32,6 @@
 
 ### Font
 - install Jetbrains Mono Nerd Font `brew install --cask font-jetbrains-mono-nerd-font`
+
+### Tmux
+- install tmux `brew install tmux`
