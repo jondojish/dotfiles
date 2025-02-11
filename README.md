@@ -35,3 +35,10 @@
 
 ### Tmux
 - install tmux `brew install tmux`
+
+### Misc
+- install lazygit `brew install lazygit`
+- install pyenv `brew install pyenv`
+    - install python versions `pyenv install 3.9.6`
+    - set global python version `pyenv global 3.9.6`
+- install raycast `brew install --cask raycast`
