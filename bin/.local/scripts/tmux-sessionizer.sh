@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/Developer  ~/University ~ -mindepth 1 -maxdepth 2 -type d | sed "s|^$HOME|~|" | awk '!seen[$0]++'| fzf --height=100% )
+    selected=$(find ~/Developer  ~/University ~ -mindepth 1 -maxdepth 2 -type d | awk '!seen[$0]++'| fzf --height=100% )
 fi
 
 if [[ -z $selected ]]; then
@@ -29,3 +29,4 @@ if ! tmux has-session -t=$selected_name 2> /dev/null; then
 fi
 
 tmux switch-client -t $selected_name
+
