@@ -281,6 +281,17 @@ return {
 					end,
 				},
 			})
+
+			require("lspconfig").sourcekit.setup({
+				capabilities = capabilities,
+				-- capabilities = vim.tbl_deep_extend("force", capabilities, {
+				-- 	workspace = {
+				-- 		didChangeWatchedFiles = {
+				-- 			dynamicRegistration = true,
+				-- 		},
+				-- 	},
+				-- }),
+			})
 		end,
 	},
 }
