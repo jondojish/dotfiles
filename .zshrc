@@ -92,5 +92,6 @@ list_oldfiles() {
 }
 
 alias nv=list_oldfiles
+alias a="source ./venv/bin/activate"
 
 
