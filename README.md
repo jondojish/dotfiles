@@ -35,6 +35,9 @@
 
 ### Tmux
 - install tmux `brew install tmux`
+- install tpm
+    - install tpm `git clone https://github.com/tmux-plugins/tpm ~/.config/plugins/tpm`
+    - press `prefix + I` to install plugins
 
 ### Misc
 - install lazygit `brew install lazygit`
