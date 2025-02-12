@@ -43,6 +43,7 @@ return {
 					"^\\.vscode$", -- Hide .vscode directory
 					"^\\.pytest_cache$", -- Hide .pytest_cache directory
 					"^__pycache__$", -- Example of hiding __pycache__ directory (Python)
+					"^node_modules$",
 				},
 			},
 		})
