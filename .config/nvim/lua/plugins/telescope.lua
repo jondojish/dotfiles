@@ -13,8 +13,7 @@ return {
 		local builtin = require("telescope.builtin")
 		vim.keymap.set("n", "<leader>pf", function()
 			builtin.find_files({
-				-- find_command = { "rg", "--files", "--iglob", "!.git", "--iglob", "!**/venv/*", "--hidden" },
-				find_command = { "rg", "--files", "--iglob", "!.git", "--iglob", "!**/venv/*" },
+				find_command = { "rg", "--files", "--iglob", "!.git", "--iglob", "!**/venv/*", "--hidden" },
 			})
 		end, { desc = "Search files" })
 		vim.keymap.set("n", "<leader>pc", function()
