@@ -250,6 +250,7 @@ return {
 				"jsonlint",
 				"hadolint",
 				"htmlhint",
+				"swiftlint",
 			}
 			-- Ensure the servers and tools above are installed
 			--  To check the current status of installed tools and/or manually install

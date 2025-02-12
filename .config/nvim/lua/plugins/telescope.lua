@@ -11,20 +11,30 @@ return {
 		local actions = require("telescope.actions")
 
 		local builtin = require("telescope.builtin")
+
+		local function build_find_command(ignored_patterns)
+			local command = { "rg", "--files", "--hidden" }
+
+			-- Add each ignore pattern with --iglob
+			for _, pattern in ipairs(ignored_patterns) do
+				table.insert(command, "--iglob")
+				table.insert(command, pattern)
+			end
+
+			return command
+		end
+
+		-- Define ignored patterns
+		local ignored = {
+			"!.git",
+			"!**/venv/*",
+			"!**/build/*",
+			"!**/target/*",
+			"!**/dist/*",
+		}
 		vim.keymap.set("n", "<leader>pf", function()
 			builtin.find_files({
-				find_command = {
-					"rg",
-					"--files",
-					"--iglob",
-					"!.git",
-					"--iglob",
-					"!**/venv/*",
-					"!**/build/*",
-					"!**/target/*",
-					"!/dist/*",
-					"--hidden",
-				},
+				find_command = build_find_command(ignored),
 			})
 		end, { desc = "Search files" })
 		vim.keymap.set("n", "<leader>pc", function()

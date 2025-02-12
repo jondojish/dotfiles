@@ -23,6 +23,7 @@ return {
 				c = { "clang-format" },
 				cpp = { "clang-format" },
 				go = { "gofmt" },
+				swift = { "swiftformat" },
 			},
 		})
 		-- format on save
