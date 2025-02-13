@@ -1,2 +1,4 @@
 .DS_Store
 **/tmux/plugins/**
+.config/karabiner/automatic_backups/karabiner_20250213.json
+.config/karabiner/assets/**
