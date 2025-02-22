@@ -1,7 +1,9 @@
 {
+    "global": { "show_in_menu_bar": false },
     "profiles": [
         {
             "complex_modifications": {
+                "parameters": { "basic.simultaneous_threshold_milliseconds": 100 },
                 "rules": [
                     {
                         "description": "Simultaneous left_command + right_command → Hyper (cmd+ctrl+alt+shift)",
