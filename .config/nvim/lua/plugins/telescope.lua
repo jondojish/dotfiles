@@ -37,6 +37,7 @@ return {
 				find_command = build_find_command(ignored),
 			})
 		end, { desc = "Search files" })
+		vim.keymap.set("n", "<leader>pr", builtin.oldfiles, { desc = "Search old files" })
 		vim.keymap.set("n", "<leader>pc", function()
 			local config_dir = vim.env.HOME .. "/.config/nvim"
 			builtin.find_files({
