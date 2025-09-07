@@ -234,6 +234,14 @@ return {
 						},
 					},
 				},
+
+				ltex = {
+					language = "en-GB",
+					additionalRules = {
+						enablePickyRules = true,
+						motherTongue = "en-GB",
+					},
+				},
 			}
 
 			local formatters = {

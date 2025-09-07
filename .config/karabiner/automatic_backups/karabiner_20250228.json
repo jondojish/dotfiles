@@ -6,25 +6,20 @@
                 "parameters": { "basic.simultaneous_threshold_milliseconds": 100 },
                 "rules": [
                     {
-                        "description": "Both command keys together → Hyper (cmd+ctrl+alt+shift)",
+                        "description": "Simultaneous left_command + right_command → Hyper (cmd+ctrl+alt+shift)",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "left_command",
-                                    "modifiers": { "mandatory": ["right_command"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_command",
-                                        "modifiers": ["left_control", "left_option", "left_shift"]
+                                    "modifiers": { "optional": ["any"] },
+                                    "simultaneous": [
+                                        { "key_code": "left_command" },
+                                        { "key_code": "right_command" }
+                                    ],
+                                    "simultaneous_options": {
+                                        "detect_key_down_uninterruptedly": true,
+                                        "key_down_order": "insensitive",
+                                        "key_up_order": "insensitive"
                                     }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "right_command",
-                                    "modifiers": { "mandatory": ["left_command"] }
                                 },
                                 "to": [
                                     {

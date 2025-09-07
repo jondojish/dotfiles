@@ -99,10 +99,11 @@ alt-comma = 'layout tiles horizontal vertical'
 alt-period = 'layout accordion horizontal vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-alt-h = 'focus left'
-alt-j = 'focus down'
-alt-k = 'focus up'
-alt-l = 'focus right'
+
+alt-h = 'focus left --boundaries-action wrap-around-the-workspace'
+alt-j = 'focus down --boundaries-action wrap-around-the-workspace'
+alt-k = 'focus up --boundaries-action wrap-around-the-workspace'
+alt-l = 'focus right --boundaries-action wrap-around-the-workspace'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
 alt-shift-h = 'move left'
@@ -156,7 +157,9 @@ alt-tab = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-alt-shift-semicolon = 'mode service'
+alt-semicolon = 'mode service'
+alt-shift-semicolon = 'mode disable'
+
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -164,7 +167,7 @@ alt-shift-semicolon = 'mode service'
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
 f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
-backspace = ['close-all-windows-but-current', 'mode main']
+# backspace = ['close-all-windows-but-current', 'mode main']
 
 # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
 #s = ['layout sticky tiling', 'mode main']
@@ -175,9 +178,53 @@ alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
 
+[mode.disable.binding]
+alt-shift-semicolon = 'mode main'
 
 # Specifics
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'finder'
 run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'settings'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'folx'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'reminders'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'find my'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'spotify'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'activity monitor'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'mail'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'messages'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'notes'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'calendar'
+run = 'layout floating'
+
+
