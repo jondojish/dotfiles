@@ -107,3 +107,7 @@ export ANTHROPIC_API_KEY=sk-ant-api03-afcngQmT8FoPSMCtVRgn_adhmVxgvFK1jf0Qj9Ylb2
 # Latex (mactex no gui)
 export PATH="/usr/local/texlive/2025/bin/universal-darwin:$PATH"
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
