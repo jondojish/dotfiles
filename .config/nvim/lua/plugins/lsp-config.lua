@@ -1,4 +1,4 @@
--- LSP Plugins
+-- LSP Pluginslsp
 return {
 	{
 		-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
@@ -18,9 +18,9 @@ return {
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			-- Automatically install LSPs and related tools to stdpath for Neovim
-			{ "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
-			"williamboman/mason-lspconfig.nvim",
-			"williamboman/mason-null-ls.nvim",
+			{ "mason-org/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
+			"mason-org/mason-lspconfig.nvim",
+			"jay-babu/mason-null-ls.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 
 			-- Useful status updates for LSP.
@@ -286,12 +286,12 @@ return {
 						-- by the server configuration above. Useful when disabling
 						-- certain features of an LSP (for example, turning off formatting for tsserver)
 						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						require("lspconfig")[server_name].setup(server)
+						vim.lsp.config(server)
 					end,
 				},
 			})
 
-			require("lspconfig").sourcekit.setup({
+			vim.lsp.config("sourcekit", {
 				capabilities = capabilities,
 				-- capabilities = vim.tbl_deep_extend("force", capabilities, {
 				-- 	workspace = {
@@ -301,6 +301,8 @@ return {
 				-- 	},
 				-- }),
 			})
+			vim.lsp.enable(vim.tbl_keys(servers))
+			vim.lsp.enable("sourcekit")
 		end,
 	},
 }

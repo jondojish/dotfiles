@@ -37,7 +37,17 @@ return {
 					-- miscs = {}, -- Uncomment to turn off hard-coded styles
 				},
 				color_overrides = {},
-				custom_highlights = {},
+				custom_highlights = {
+					NormalFloat = { bg = "none" },
+					TelescopeNormal = { bg = "none" },
+					TelescopeBorder = { bg = "none" },
+					TelescopePromptNormal = { bg = "none" },
+					TelescopePromptBorder = { bg = "none" },
+					TelescopeResultsNormal = { bg = "none" },
+					TelescopeResultsBorder = { bg = "none" },
+					TelescopePreviewNormal = { bg = "none" },
+					TelescopePreviewBorder = { bg = "none" },
+				},
 				default_integrations = true,
 				integrations = {
 					cmp = true,
@@ -49,12 +59,15 @@ return {
 						enabled = true,
 						indentscope_color = "",
 					},
+					telescope = { enabled = true }, -- optional style key exists in some versions
+
 					-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 				},
 			})
 
 			-- setup must be called before loading
 			vim.cmd.colorscheme("catppuccin")
+			-- colorscheme.lua (after vim.cmd.colorscheme("catppuccin"))
 		end,
 	},
 }
