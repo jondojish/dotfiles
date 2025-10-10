@@ -1,15 +1,25 @@
 local M = {}
 function M:setup()
 	local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-	local workspace_dir = "/~/jdtls_data" .. project_name
+	local workspace_dir = "/~/jdtls_data" .. project_name -- can change to preferred folder
+	local java = "/Users/jonathanfesseha/.sdkman/candidates/java/current" -- or '/path/to/java21_or_newer/bin/java'
+	-- depends on if `java` is in your $PATH env variable and if it points to the right version.
+	local eclipse_jdtls_jar =
+		"/Users/jonathanfesseha/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.7.0.v20250519-0528.jar"
+	-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
+	-- Must point to the                                                     Change this to
+	-- eclipse.jdt.ls installation                                           the actual version
+	local eclipse_jdtls_config = "/Users/jonathanfesseha/.local/share/nvim/mason/packages/jdtls/config_mac_arm/"
+	-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
+	-- Must point to the                      Change to one of `linux`, `win` or `mac`
+	-- eclipse.jdt.ls installation            Depending on your system.
 	local config = {
 		-- The command that starts the language server
 		-- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
 		cmd = {
 
 			-- 💀
-			"/Users/jonathanfesseha/.sdkman/candidates/java/current", -- or '/path/to/java21_or_newer/bin/java'
-			-- depends on if `java` is in your $PATH env variable and if it points to the right version.
+			java,
 
 			"-Declipse.application=org.eclipse.jdt.ls.core.id1",
 			"-Dosgi.bundles.defaultStartLevel=4",
@@ -23,19 +33,11 @@ function M:setup()
 			"--add-opens",
 			"java.base/java.lang=ALL-UNNAMED",
 
-			-- 💀
 			"-jar",
-			"/Users/jonathanfesseha/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.7.0.v20250519-0528.jar",
-			-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
-			-- Must point to the                                                     Change this to
-			-- eclipse.jdt.ls installation                                           the actual version
+			eclipse_jdtls_jar,
 
-			-- 💀
 			"-configuration",
-			"/Users/jonathanfesseha/.local/share/nvim/mason/packages/jdtls/config_mac_arm/",
-			-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
-			-- Must point to the                      Change to one of `linux`, `win` or `mac`
-			-- eclipse.jdt.ls installation            Depending on your system.
+			eclipse_jdtls_config,
 
 			-- 💀
 			-- See `data directory configuration` section in the README
