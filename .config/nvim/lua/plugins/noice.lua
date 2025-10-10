@@ -30,6 +30,25 @@ return {
 				inc_rename = false, -- enables an input dialog for inc-rename.nvim
 				lsp_doc_border = false, -- add a border to hover docs and signature help
 			},
+
+			routes = {
+				{
+					filter = {
+						any = {
+
+							{
+								event = "notify",
+								find = "position_encoding param is required",
+							},
+							{
+								event = "msg_show",
+								find = "vim.lsp.util.jump_to_location is deprecated",
+							},
+						},
+					},
+					opts = { skip = true },
+				},
+			},
 		})
 	end,
 }

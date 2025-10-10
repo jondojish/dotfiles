@@ -13,6 +13,7 @@ return {
 		},
 	},
 	{ "Bilal2453/luvit-meta", lazy = true },
+	{ "mfussenegger/nvim-jdtls" },
 	{
 		-- Main LSP Configuration
 		"neovim/nvim-lspconfig",
@@ -303,6 +304,13 @@ return {
 			})
 			vim.lsp.enable(vim.tbl_keys(servers))
 			vim.lsp.enable("sourcekit")
+
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = "java",
+				callback = function(args)
+					require("jdtls.jdtls_setup").setup()
+				end,
+			})
 		end,
 	},
 }
