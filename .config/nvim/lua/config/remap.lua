@@ -52,3 +52,7 @@ vim.api.nvim_set_keymap("c", "<Down>", "<C-n>", { noremap = true, silent = true 
 
 -- disable command window
 vim.api.nvim_set_keymap("n", "q:", "<Nop>", { noremap = true, silent = true })
+
+-- stay in indent mode after indent
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
