@@ -99,10 +99,6 @@ alias nv=list_oldfiles
 alias a="source ./venv/bin/activate"
 
 
-export DEEPSEEK_API_KEY=sk-8034a1e9ef4d4952aacf695b6671dc7b
-export OPENAI_API_KEY=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
-
-export ANTHROPIC_API_KEY=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
 
 # Latex (mactex no gui)
 export PATH="/usr/local/texlive/2025/bin/universal-darwin:$PATH"
